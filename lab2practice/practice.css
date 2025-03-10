@@ -3,13 +3,111 @@ body {
 }
 
 table {
-  border-collapse: collapse;
-  width: 200px;
+  border: 2px solid red;
+  /* 只有设置成了separate，才能设置表格的的四个角为圆的，因为collapse会忽略外边框样式 */
+  border-collapse: separate;
+  border-radius: 10px;
+  /* 避免单元格之间有间隙*/
+  border-spacing: 0;
+  width: 100%;
+  /* 确保内容不会超出圆角边框 */
+  overflow: hidden;
 }
 
 td,
 th {
-  border: 1px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 3px;
+  margin: 0;
+}
+
+th:hover {
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  padding: 2px;
+}
+
+td:hover {
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  padding: 2px;
+}
+
+/* 这里一定要写td，因为你在下面已经设置了每一个单元格的颜色了，如果不写td你的优先级不会高于更具体的设置 */
+/* 当你为 tr 元素设置背景色时，这个背景色会被其内部的 td 元素的背景色完全覆盖 */
+tr:hover td {
+  background-color: grey !important;
+}
+
+th:nth-child(1) {
+  background-color: black;
+  color: white;
   text-align: center;
-  padding: 8px;
+}
+
+td:nth-child(1) {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+th:nth-child(2) {
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+
+td:nth-child(2) {
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+
+th:nth-child(3) {
+  background-color: gold;
+  text-align: center;
+}
+
+td:nth-child(3) {
+  background-color: gold;
+  text-align: center;
+}
+
+th:nth-child(4) {
+  background-color: silver;
+  text-align: center;
+}
+
+td:nth-child(4) {
+  background-color: silver;
+  text-align: center;
+}
+
+th:nth-child(5) {
+  background-color: #c96;
+  text-align: center;
+}
+
+td:nth-child(5) {
+  background-color: #c96;
+  text-align: center;
+}
+
+th:nth-child(6) {
+  background-color: green;
+  text-align: center;
+}
+
+td:nth-child(6) {
+  background-color: green;
+  text-align: center;
+}
+
+#China::after {
+  content: "\1F1E8\1F1F3";
+}
+
+#Ukra::after {
+  content: "\1F1FA\1F1E6";
 }
